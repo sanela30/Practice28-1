@@ -81,18 +81,25 @@ namespace Practice28_1
             }
             System.Threading.Thread.Sleep(3000);
 
+            try
+            { 
 
             IWebElement successfullAdd = driver.FindElement(By.ClassName("exclusive"));
-            if (successfullAdd.Displayed && successfullAdd.Enabled)
-            {
+             if (successfullAdd.Displayed && successfullAdd.Enabled)
+             {
                 IWebElement countinueButton = driver.FindElement(By.LinkText("Continue shopping"));
                 if(countinueButton.Displayed && countinueButton.Enabled)
                 {
                     countinueButton.Click();
+                    Assert.Pass();
                 }
 
+             }
             }
-
+            catch (WebDriverTimeoutException)
+            {
+                Assert.Fail("Failed adding product in cart");
+            }
 
 
         }
