@@ -67,6 +67,12 @@ namespace Practice28_1
                 size.SelectByText("L");
                 
             }
+            IWebElement color = driver.FindElement(By.Name("Blue"));
+            if (color.Displayed && color.Enabled)
+            {
+                color.Click();
+
+            }
             IWebElement addToCartBUtton = driver.FindElement(By.Name("Submit"));
             if (addToCartBUtton.Displayed && addToCartBUtton.Enabled)
             {
@@ -74,9 +80,7 @@ namespace Practice28_1
                
             }
             System.Threading.Thread.Sleep(3000);
-            /*
-            IWebElement successfullAdd = driver.FindElement(By.Name("exclusive"));
-            wait.Until(EC.ElementExists(By.XPath("//option[@value='3']")));*/
+
 
             IWebElement successfullAdd = driver.FindElement(By.ClassName("exclusive"));
             if (successfullAdd.Displayed && successfullAdd.Enabled)
